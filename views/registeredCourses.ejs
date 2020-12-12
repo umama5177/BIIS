@@ -1,0 +1,87 @@
+<html>
+
+    <head>
+        <title>registration</title>
+        <link href="/stylesheets/home.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/biis.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/contact.css" rel="stylesheet" type="text/css">
+
+    </head>
+
+    <body class="body">
+        <div class="outside_box" style="height: 900px;">
+            <div class="top">
+                <img src="/images/top.png">
+                <nav>
+                    <ul>
+                        <li><a href="https://www.buet.ac.bd/web/">BUET Home</a></li>
+                        <li><a href="http://medical.buet.ac.bd/web/">Medical Center</a></li>
+                        <div style="display:inline-block; margin-left: 60px; font-size: smaller;">
+                            <li><a href="/home/<%=std_id%>">Home</a></li>
+                            <li><a href="#">Secure BIIS</a></li>
+                            <li><a href="#">Campus life</a></li>
+                            <li><a href="#">Notice Board</a></li>
+                            <li><a href="/logout/<%=std_id%>">Logout</a></li>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <div class="inside_box" style="height: 745px;">
+                <div class="inside_left" style="height: 743px;">
+                    <sidenav>
+                        <ul>
+                            <li><a href="/registration/<%= std_id%>">Registration</a></li>
+                            <li><a href="/grade/<%= std_id%>">View Grade</a></li>
+                            <li><a href="/adviser/<%= std_id%>">My Advisor</a></li>
+                            <li><a href="/contact_info/<%= std_id%>">My Contact Information</a></li>
+                            <li><a href="/change_password/<%= std_id%>">Change Password</a></li>
+                        </ul>
+                    </sidenav>
+                    <web style="margin: 320% 0  0;"><a href="https://webmail.buet.ac.bd/">BUET WebMail</a></web>
+                </div>
+                <div class="inside_right" style="height: 93%;">
+
+                    <div class="contact" style="height: 75%;border:0;box-shadow: none;">
+                        <h4 style="font-size: 20px;font-weight: normal;"><%=student.name%></h4>
+                        <h4 style="font-size: 15px;font-weight: normal;">Student No: <%=std_id%>&emsp;
+                            Level-<%=student.level%>/Term-<%=student.term%> &emsp;Session: <%=student.session%></h4>
+                        <br>
+                        <h4 style="font-size: 15px;font-weight: normal;">You have registered the following courses:</h4>
+
+                        <p style="float: right;margin-right:50px ;"><b>total cr_hr: <%= format(total_credit_hour)%></b>
+                        </p><br>
+                        <table style="width: 95%;">
+                            <thread>
+                                <th>Course No</th>
+                                <th>Course Title</th>
+                                <th>Crhr</th>
+
+
+                            </thread>
+                            <% for (var i=0;i<courses.length;i++){%>
+                            <tr>
+                                <td><%=courses[i].course_id%></td>
+                                <td><%=courses[i].course_title%></td>
+                                <td><%=format(courses[i].cr_hr)%></td>
+                                
+                            </tr>
+                            <% } %>
+
+
+                        </table>
+                        <br>
+
+                        </div>
+                        <img src="/images/bottom.png" style="margin-top: 155px;" >
+                    </div>
+                             
+                </div>
+               
+            </div>
+            
+       
+        <div class="bottom_box" >
+        <pre>Bangladesh University of Engineering & Technology (BUET), Dhaka-1000, Bangladesh. Tel: (880 2) 9665650 Fax: (880 2) 8613046. 2007 © All rights reserved, BUET</pre>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>show grade</title>
+        <link href="/stylesheets/home.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/biis.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/contact.css" rel="stylesheet" type="text/css">
+    </head>
+    <body class="body">
+        <div class="outside_box" style="height: 900px;" >
+            <div class="top">
+                <img src="/images/top.png">
+                <nav>
+                    <ul>
+                        <li><a href="https://www.buet.ac.bd/web/">BUET Home</a></li>
+                        <li><a href="http://medical.buet.ac.bd/web/">Medical Center</a></li>
+                        <div style="display:inline-block; margin-left: 60px; font-size: smaller;">
+                            <li><a href="/home/<%= std.std_id%>">Home</a></li>
+                            <li><a href="#">Secure BIIS</a></li>
+                            <li><a href="#">Campus life</a></li>
+                            <li><a href="#">Notice Board</a></li>
+                            <li><a href="/logout/<%= std.std_id%>">Logout</a></li>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <div class="inside_box" style="height: 745px;">
+                <div class="inside_left" style="height: 743px;">
+                    <sidenav>
+                        <ul>
+                            <ul>
+                                <li><a href="/registration/<%= std.std_id%>">Registration</a></li>
+                                <li><a href="/grade/<%= std.std_id%>">View Grade</a></li>
+                                <li><a href="/adviser/<%= std.std_id%>">My Advisor</a></li>
+                                <li><a href="/contact_info/<%= std.std_id%>">My Contact Information</a></li>
+                                <li><a href="/change_password/<%= std.std_id%> ">Change Password</a></li>
+                            </ul>
+                        </ul>
+                    </sidenav>
+                    <web style="margin: 320% 0  0;"><a href="https://webmail.buet.ac.bd/">BUET WebMail</a></web>
+                </div>
+                    <div class="inside_right" style="height: 93%;">
+                        <div class="contact" style="width: 50%;height: 20%;text-align: center;">
+                            <h4><b>View Grades</b></h4><hr>
+                            <p>Session&emsp;&emsp;&emsp;Level/Term</p>
+                            <form method="post" action="/grade/show/<%= std.std_id%>">
+                                <select name="session">
+                                    <option value=''>select a level/term</option>
+                                    <% for(var i=0;i<terms.length;i++){%>
+                                        <option value="<%= terms[i].term_id%>"><%= terms[i].session%> L<%=terms[i].level%>/T<%=terms[i].term%></option>
+                                    <% } %>                                  
+                                    
+                                </select>   
+                                <br>
+                                <input type="submit" class="button" value="show">                                                                           
+                            </form>
+                        </div>
+                        <div class="contact" style="height: 75%;border:0;box-shadow: none;">
+                            <h4><b>Level-<%= term.level%>, Term-<%= term.term%>, Session <%= term.session%></b></h4>
+                        <h4><b><%= std.dept%></b></h4>
+                        <p>Student's Name&emsp;&ensp; <b>: <%= std.name%></b></p>
+                        <p>Student No &emsp;&emsp;&emsp;&ensp; <b>: <%= std.std_id%></b></p>
+                        <table style="width: 95%;">
+                            <thread>
+                                <th >Course No</th>
+                                <th >Course Title</th>
+                                <th >Crhr</th>
+                                <th>Grade</th>
+                                <th >Grade-point</th>
+                            </thread>                            
+                            <% for(var i=0;i<grades.length;i++){%>
+                                <tr>
+                                    <td><%= grades[i].course_no%></td>
+                                    <td><%= grades[i].title%></td>
+                                    <td><%= format(grades[i].cr_hr)%></td>
+                                    <td><%= grades[i].grade%></td>
+                                    <td><%= format(grades[i].grade_point)%></td>
+                                    
+                                </tr>
+                            <% } %>
+                        </table>
+                        <p class="right" style="margin-right: 50px;"><b><u>GPA: <%= format(gpa.cgpa)%></u></b></p><br>
+                        <div class="grade">
+                                <p><b>Registered Credit Hours in this Term :&emsp;&emsp;<%= format(gpa.registered_crhr)%></b></p>
+                                <p><b>Credit Hours Earned in this Term :&emsp;&emsp;<%=format( gpa.earned_crhr)%></b></p>
+                                <p><b>Total Credit Hours :&emsp;&emsp;<%= format(gpa.total_crhr)%></b></p>
+                                <p><b>CGPA :&emsp;&emsp;<%= format(avg)%>&nbsp;</b></p>
+                        </div>
+                        </div>
+                        <img src="/images/bottom.png" style="margin-top: 10px;" >
+                    </div>
+                             
+                </div>
+               
+            </div>
+            
+       
+        <div class="bottom_box" >
+        <pre>Bangladesh University of Engineering & Technology (BUET), Dhaka-1000, Bangladesh. Tel: (880 2) 9665650 Fax: (880 2) 8613046. 2007 © All rights reserved, BUET</pre>
+        </div>
+    </body>
+</html>

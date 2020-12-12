@@ -1,0 +1,78 @@
+.contact{
+    display: block;
+    width: 95%;
+    height: 95%;
+    border: 1px dimgray solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px gray;
+    font-size: small;
+    line-height: 25px;
+    padding: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.contact h4{
+    text-align: center;    
+}
+.contact info{
+    display: inline-block;
+   float: right;
+    width: 73%;
+    height: 80%;
+    
+    margin-top:0;
+    
+    
+}
+.contact info left{
+    display: block;
+    float: left;
+    margin-left: 20px;
+    margin-right: 40px;
+    
+}
+.contact info right{
+    display: block;
+    float: right;
+    margin-right: 0px;
+    
+}
+.contact img{
+    display: inline-block;
+    height: 180px;
+    width: 150px;
+    margin-left: 20px;
+    border: 1px red solid;    
+    float:left;
+    margin-top: 20px;
+}
+title{
+    display: inline-block;
+    width: 80px;
+    height: auto;
+    font-weight: bold;
+    line-height: 15px;
+    margin-left: 20px;
+    text-align: left;
+}
+value{
+    display: inline;        
+    margin-left: 20px;
+}
+/*.contact a{
+    background-color: #ddd;
+    text-decoration: none;
+    border: none;
+    color: black;       
+    text-align: center;  
+    width:200px;
+    float: right;
+    margin: 10px;
+    font-size: 15px;
+    border: 1px dimgray solid;
+}*/
+.contact a:hover{
+    background-color: paleturquoise;
+}

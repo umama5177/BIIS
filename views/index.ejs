@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>biis.buet.ac.bd</title>
+        
+        <link href="/stylesheets/biis.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/home.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/contact.css" rel="stylesheet" type="text/css">
+    </head>
+    <body class="body">
+        <div class="outside_box">
+            <div class="top">
+                <img src="/images/top.png">
+                <nav>
+                    <ul>
+                        <li><a href="https://www.buet.ac.bd/web/">BUET Home</a></li>
+                        <li><a href="http://medical.buet.ac.bd/web/">Medical Center</a></li>
+                        <li><a href="/admin">Admin</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="inside_box">
+                <div class="inside_left">
+                    <web><a href="https://webmail.buet.ac.bd/">BUET WebMail</a></web>
+                </div>
+                <div class="inside_right">                           
+                     <div class="login_box">
+                         <h1>BIIS Login</h1>
+                         <form action="/signIn" method="POST">                             
+                             <label><pre>UserID:   </pre></label>
+                             <input type="text" name="userID"><br>
+                             <label><pre>Password: </pre></label>
+                             <input type="password"name="password">                            
+                             <pre>If your password contains capital letters and digits,
+they must be typed the same way every time you log in.</pre><br>
+                             <input type="submit" class="btn" value="login">
+                             <% if (msg){ %>
+                                <pre><%=msg%></pre>
+                             <% } %>
+                         </form>
+                       
+                     </div>      
+                     <img src="/images/bottom.png" >        
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="bottom_box" >
+        <pre>Bangladesh University of Engineering & Technology (BUET), Dhaka-1000, Bangladesh. Tel: (880 2) 9665650 Fax: (880 2) 8613046. 2007 © All rights reserved, BUET</pre>
+        </div>
+    </body>
+</html>

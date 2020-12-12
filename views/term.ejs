@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>biis.buet.ac.bd</title>
+        
+        <link href="/stylesheets/biis.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/home.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/contact.css" rel="stylesheet" type="text/css">
+    </head>
+    <body class="body">
+        <div class="outside_box">
+            <div class="top">
+                <img src="/images/top.png">
+                <nav>
+                    <ul>
+                        <li><a href="https://www.buet.ac.bd/web/">BUET Home</a></li>
+                        <li><a href="http://medical.buet.ac.bd/web/">Medical Center</a></li>
+                        <div style="display:inline-block; margin-left: 60px; font-size: smaller;">
+                            <li><a href="/">Logout</a></li>
+                            <li><a href="/admin/home">Back</a></li>
+                            <li><a href="/admin/publish">Publish</a></li>
+
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <div class="inside_box">
+                <div class="inside_left">
+                    <web><a href="https://webmail.buet.ac.bd/">BUET WebMail</a></web>
+                </div>
+                
+
+                <div class="inside_right">                          
+                    <div class="about" style="float: right;">
+                        <form action="/admin/term/<%= std_id%>" method="POST">
+                            <label><pre style="font-size: 18px;">Select any level - term:  </pre></label><br><br>
+                            <select name="term">
+                                <option value=''>select a level/term</option>
+                                <% for(var i=0;i<terms.length;i++){%>
+                                    <option value="<%= terms[i]%>"><%= terms[i].session%> <%= terms[i]%></option>
+                                <% } %>  
+                            </select>                                   
+                            <br>
+                            <input type="submit" class="button" value="submit" style="width: 55px;">
+                        </form>  
+                    </div>                       
+                          
+                     <img src="/images/bottom.png" >        
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="bottom_box" >
+        <pre>Bangladesh University of Engineering & Technology (BUET), Dhaka-1000, Bangladesh. Tel: (880 2) 9665650 Fax: (880 2) 8613046. 2007 © All rights reserved, BUET</pre>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<html>
+
+    <head>
+        <title>updateResult</title>
+        <link href="/stylesheets/home.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/biis.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/contact.css" rel="stylesheet" type="text/css">
+
+    </head>
+
+    <body class="body">
+        <div class="outside_box" style="height: 900px;">
+            <div class="top">
+                <img src="/images/top.png">
+                <nav>
+                    <ul>
+                        <li><a href="https://www.buet.ac.bd/web/">BUET Home</a></li>
+                        <li><a href="http://medical.buet.ac.bd/web/">Medical Center</a></li>
+                        <div style="display:inline-block; margin-left: 60px; font-size: smaller;">
+                            <li><a href="/logout">Logout</a></li>
+                            <li><a href="/admin/publish">Publish</a></li>
+
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <div class="inside_box" style="height: 745px;">
+                <div class="inside_left" style="height: 743px;">
+                    <web style="margin: 20% 0  0;"><a href="https://webmail.buet.ac.bd/">BUET WebMail</a></web>
+                </div>
+                <div class="inside_right" style="height: 93%;">
+
+                    <div class="contact" style="height: 75%;border:0;box-shadow: none;">
+                        <h4 style="font-size: 20px;font-weight: normal;"><%=student.name%></h4>
+                        <h4 style="font-size: 15px;font-weight: normal;">Student No: <%= student.id%>&emsp;
+                            Level-<%=student.level%>/Term-<%=student.term%> &emsp;Session: <%=student.session%></h4>
+                        <br>
+                        
+                        <a class="button right" href="/admin/home">Back</a>
+                        <h4 style="font-size: 15px;font-weight: normal;">These courses are available to update the grade_point:</h4>
+                        <br>
+                        <form method="post" action="/admin/updateResult/<%= student.id%>">
+                            <input type="hidden" name="term" value="<%= student.term_id%>">
+
+                            <table style="width: 50%;margin-left: auto ;margin-right: auto;">
+                                <thread>
+                                    <th style="width: 70%;">Course ID</th>
+                                    <th>Grade point</th>
+                                </thread>
+                            <% for (var i=0;i<courses.length;i++){%>
+                                <tr>
+                                    <td><%=courses[i].course_id%></td>
+                                    <td>
+                                        <input type="text" name="grade" list="grades" value="<%= format(courses[i].grade)%>" style="width: 70px;">
+                                        <input type="hidden" name="courses" value="<%= courses[i].course_id%>">
+
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </table>
+                            <br>
+                            <input type="submit" class="button" value="submit" style="width: 60px;margin-left: 300px;">
+
+                        </form>                       
+                        <% if(error.length>0){%>
+                            <p>invalid input for </p>
+                            <% for(var i=0;i<error.length;i++){%>
+                                <%= error[i]%>&emsp;
+                            <%}%>
+                                
+                        <% } %>
+                        </div>
+                        <img src="/images/bottom.png" style="margin-top: 155px;" >
+                    </div>
+                             
+                </div>
+               
+            </div>
+            
+       
+        <div class="bottom_box" >
+        <pre>Bangladesh University of Engineering & Technology (BUET), Dhaka-1000, Bangladesh. Tel: (880 2) 9665650 Fax: (880 2) 8613046. 2007 © All rights reserved, BUET</pre>
+        </div>
+    </body>
+</html>
